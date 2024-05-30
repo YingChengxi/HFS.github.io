@@ -1,38 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>观看m3u8视频</title>
+    <title>我的视频</title>
 </head>
 <body>
-    <video id="videoPlayer" controls></video>
-
-    <script>
-        var video = document.getElementById('videoPlayer');
-
-        // 创建一个新的MediaSource对象
-        var mediaSource = new MediaSource();
-
-        // 将MediaSource对象添加到video标签的src属性
-        video.src = URL.createObjectURL(mediaSource);
-
-        // 当MediaSource对象的readyState变为'open'时，添加源缓冲区
-        mediaSource.addEventListener('sourceopen', function() {
-            // 创建一个源缓冲区，并添加到MediaSource对象
-            var sourceBuffer = mediaSource.addSourceBuffer('application/vnd.apple.mpegurl');
-
-            // 设置请求头
-            var headers = new Headers();
-            headers.append('origin', 'https://www.aliyundrive.com');
-            headers.append('referer', 'https://www.aliyundrive.com/');
-
-            // 获取m3u8视频链接
-            fetch('https://ccp-bj29-video-preview-hz.oss-cn-hangzhou.aliyuncs.com/lt/C32D7C10585B211210E4746DFF89D8B9405220E7_4069854280__sha1_bj29_73701a6b/QHD/media.m3u8?di=bj29&dr=63461141&f=66364ecef5fb9589d56844e494dd78848dbf8fb0&pds-params=%7B%22ap%22%3A%2225dzX3vbYqktVxyX%22%7D&security-token=CAISvgJ1q6Ft5B2yfSjIr5bAIe7EiI9wzrKTVRTn3UwPfvVNqof%2Fpzz2IHhMf3NpBOkZvvQ1lGlU6%2Fcalq5rR4QAXlDfNUj9WRjDqFHPWZHInuDox55m4cTXNAr%2BIhr%2F29CoEIedZdjBe%2FCrRknZnytou9XTfimjWFrXWv%2Fgy%2BQQDLItUxK%2FcCBNCfpPOwJms7V6D3bKMuu3OROY6Qi5TmgQ41Uh1jgjtPzkkpfFtkGF1GeXkLFF%2B97DRbG%2FdNRpMZtFVNO44fd7bKKp0lQLs0ARrv4r1fMUqW2X543AUgFLhy2KKMPY99xpFgh9a7j0iCbSGyUu%2FhcRm5sw9%2Byfo34lVYneQzFGy1r3LuHwufJ7FxfIREfquk63pvSlHLcLPe0Kjzzleo2k1XRPVFF%2B535IaHXuToXDnvSi2g%2FBW%2FXtuMkagAFZ%2B%2F7D%2FwTU%2BOV1YRSFeihk%2BL%2BS9v%2BUgfLwbLA2ILJsCrAah2pvCV7u3BFgnFoDt4faq6jfZZQ1jd2tWQHDOFPggDce5g1iJd4sCze%2BVBrKXwlzHbgLQKk2QgPioZbnIgyO435N7p1C1rCpikRIVj3ca%2BUP3km1CWFS5PHlXrxfdiAA&u=e4b9777044754c57be744d83d6ac9def&x-oss-access-key-id=STS.NUujTpePQypxW2V9LZrzaEBTE&x-oss-additional-headers=referer&x-oss-expires=1717018202&x-oss-process=hls%2Fsign%2Cparams_ZGksZHIsZix1LHBkcy1wYXJhbXM%3D%2Cheaders_cmVmZXJlcg%3D%3D&x-oss-signature=RWtb7b0Bw0Z4rD3dpr9TeqQ1pPdQb7pc7VLL8yfLNfU%3D&x-oss-signature-version=OSS2', { headers: headers })
-                .then(response => response.arrayBuffer())
-                .then(data => {
-                    // 将获取到的数据添加到源缓冲区
-                    sourceBuffer.appendBuffer(data);
-                });
-        });
-    </script>
+    <video width="320" height="240" controls>
+        <source src="myVideo.mp4" type="video/mp4">
+        你的浏览器不支持视频标签。
+    </video>
 </body>
 </html>
